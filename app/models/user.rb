@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :created_events, class_name: "Event", foreign_key: "owner_id"
+  has_many :tickets
 
   def self.find_or_create_from_auth_hash!(auth_hash)
     provider = auth_hash[:provider]
