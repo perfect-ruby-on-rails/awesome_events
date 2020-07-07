@@ -1,0 +1,24 @@
+- now = Time.zone.now
+
+%h1.mt-2 イベント情報編集
+
+= form_with(model: @event, class: "form-horizontal") do |f|
+  #errors
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: "form-control"
+  .form-group
+    = f.label :place
+    = f.text_field :place, class: "form-control"
+  .form-group
+    = f.label :start_at
+    %div
+      = f.datetime_select :start_at, start_year: now.year, end_year: now.year + 1
+  .form-group
+    = f.label :end_at
+    %div
+      = f.datetime_select :end_at, start_year: now.year, end_year: now.year + 1
+  .form-group
+    = f.label :content
+    = f.text_area :content, class: "form-control", row: 10
+  = f.submit class: "btn btn-primary"
