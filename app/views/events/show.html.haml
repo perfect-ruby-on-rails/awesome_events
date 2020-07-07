@@ -2,6 +2,9 @@
 .row
   .col-8
     .card.mb-2
+      -  if @event.image.attached?
+        = image_tag @event.image, class: "card-img-top"
+    .card.mb-2
       %h5.card-header イベント内容
       .card-body
         %p.card-text= @event.content
