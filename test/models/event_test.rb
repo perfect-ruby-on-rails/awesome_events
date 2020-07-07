@@ -3,7 +3,10 @@ require 'test_helper'
 class EventTest < ActiveSupport::TestCase
   test '#created_by? owner_id と 引数の#id が同じとき' do
     event = FactoryBot.create(:event)
-    assert_equal(true, event.created_by?(event.owner))
+    user = User.new
+    user.stub(:id, event.owner_id) do
+      assert_equal(true, event.created_by?(user))
+    end
   end
 
   test '#created_by? owner_id と 引数の#id が異なるとき' do
