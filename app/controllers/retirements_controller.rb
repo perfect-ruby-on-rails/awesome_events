@@ -1,0 +1,2 @@
+class RetirementsController < ApplicationController
+end
