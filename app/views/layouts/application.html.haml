@@ -12,8 +12,12 @@
       .container
         = link_to "AwesomeEvents", root_path, class: "navbar-brand mr-auto"
         %ul.navbar-nav
-          %li.nav-item
-            = link_to "GitHubでログイン", "/auth/github", class: "nav-link", method: :post
+          - if logged_in?
+            %li.nav-item
+              = link_to "ログアウト", logout_path, class: "nav-link", method: :delete
+          - else
+            %li.nav-item
+              = link_to "GitHubでログイン", "/auth/github", class: "nav-link", method: :post
     .container
       - if flash.notice
         .alert.alert-success
