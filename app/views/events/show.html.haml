@@ -16,9 +16,12 @@
     .card.mb-2
       %h5.card-header 主催者
       .card-body
-        = link_to(url_for_github(@event.owner), class: "card-link") do
-          = image_tag @event.owner.image_url, width: 50, height: 50
-          = "@#{@event.owner.name}"
+        - if @event.owner
+          = link_to(url_for_github(@event.owner), class: "card-link") do
+            = image_tag @event.owner.image_url, width: 50, height: 50
+            = "@#{@event.owner.name}"
+        - else
+          退会したユーザです
   .col-4
     - if @event.created_by?(current_user)
       = link_to "イベントを編集する", edit_event_path(@event), class: "btn btn-info btn-lg btn-block"
@@ -50,7 +53,10 @@
       %ul.list-group.list-group-flush
         - @tickets.each do |ticket|
           %li.list-group-item
-            = link_to(url_for_github(ticket.user), class: "card-link") do
-              = image_tag ticket.user.image_url, width: 20, height: 20
-              = "@#{ticket.user.name}"
-            = ticket.comment
+            - if ticket.user
+              = link_to(url_for_github(ticket.user), class: "card-link") do
+                = image_tag ticket.user.image_url, width: 20, height: 20
+                = "@#{ticket.user.name}"
+              = ticket.comment
+            - else
+              退会したユーザです
