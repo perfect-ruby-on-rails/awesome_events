@@ -15,4 +15,7 @@
           %li.nav-item
             = link_to "GitHubでログイン", "/auth/github", class: "nav-link", method: :post
     .container
+      - if flash.notice
+        .alert.alert-success
+          = flash.notice
       = yield
