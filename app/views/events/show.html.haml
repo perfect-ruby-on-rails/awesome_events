@@ -1,0 +1,19 @@
+%h1.mt-3.mb-3= @event.name
+.card.mb-2
+  %h5.card-header イベント内容
+  .card-body
+    %p.card-text= @event.content
+.card.mb-2
+  %h5.card-header 開催時間
+  .card-body
+    %p.card-text= "#{l(@event.start_at, format: :long)} - #{l(@event.end_at, format: :long)}"
+.card.mb-2
+  %h5.card-header 開催場所
+  .card-body
+    %p.card-text= @event.place
+.card.mb-2
+  %h5.card-header 主催者
+  .card-body
+    = link_to("https://github.com/#{@event.owner.name}", class: "card-link") do
+      = image_tag @event.owner.image_url, width: 50, height: 50
+      = "@#{@event.owner.name}"
