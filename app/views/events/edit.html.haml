@@ -21,4 +21,14 @@
   .form-group
     = f.label :content
     = f.text_area :content, class: "form-control", row: 10
+  .form-group
+    = f.label :image
+    -  if @event.image.attached?
+      = image_tag @event.image, class: "img-thumbnail d-block mb-3", width: 200, height: 200
+    = f.file_field :image, class: "form-control-file"
+  -  if @event.image.attached?
+    .checkbox
+      %label
+        = f.check_box :remove_image
+        画像を削除する
   = f.submit class: "btn btn-primary"
