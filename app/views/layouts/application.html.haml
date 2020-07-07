@@ -16,6 +16,8 @@
             = link_to "イベントを作る", new_event_path, class: "nav-link"
           - if logged_in?
             %li.nav-item
+              = link_to "退会", new_retirements_path, class: "nav-link"
+            %li.nav-item
               = link_to "ログアウト", logout_path, class: "nav-link", method: :delete
           - else
             %li.nav-item
