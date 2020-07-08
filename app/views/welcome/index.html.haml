@@ -5,3 +5,5 @@
     = link_to(event, class: "list-group-item list-group-item-action") do
       %h5.list-group-item-heading= event.name
       %p.mb-1= "#{l(event.start_at, format: :long)} - #{l(event.end_at, format: :long)}"
+
+= paginate @events
