@@ -3,7 +3,9 @@ class Event < ApplicationRecord
   has_many :tickets, dependent: :destroy
   belongs_to :owner, class_name: "User"
 
-  validates :image, content_type: [:png, :jpg, :jpeg]
+  validates :image,
+    content_type: [:png, :jpg, :jpeg],
+    size: { less_than_or_equal_to: 10.megabytes }
   validates :name, length: { maximum: 50 }, presence: true
   validates :place, length: { maximum: 100 }, presence: true
   validates :content, length: { maximum: 2000 }, presence: true
