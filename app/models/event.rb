@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  searchkick language: "japanese"
+
   has_one_attached :image
   has_many :tickets, dependent: :destroy
   belongs_to :owner, class_name: "User"
@@ -35,5 +37,15 @@ class Event < ApplicationRecord
     if start_at >= end_at
       errors.add(:start_at, "は終了時間よりも前に設定してください")
     end
+  end
+
+  def search_data
+    {
+      name: name,
+      place: place,
+      content: content,
+      owner_name: owner&.name,
+      start_at: start_at
+    }
   end
 end
