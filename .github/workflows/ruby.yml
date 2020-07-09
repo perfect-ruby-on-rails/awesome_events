@@ -32,3 +32,9 @@ jobs:
         bin/yarn install
         bin/rails test
         bin/rails test:system
+#    - name: Upload
+#      uses: actions/upload-artifact@v2
+#      if: failure()
+#      with:
+#        name: my-uploads
+#        path: tmp/screenshots/
