@@ -52,6 +52,7 @@ group :development do
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'brakeman'
+  gem 'rack-mini-profiler', require: false
 end
 
 group :test do

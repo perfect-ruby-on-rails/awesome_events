@@ -176,6 +176,8 @@ GEM
     puma (4.3.5)
       nio4r (~> 2.0)
     rack (2.2.3)
+    rack-mini-profiler (2.0.1)
+      rack (>= 1.2.0)
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -319,6 +321,7 @@ DEPENDENCIES
   omniauth-github (~> 1.4.0)
   omniauth-rails_csrf_protection (~> 0.1.2)
   puma (~> 4.1)
+  rack-mini-profiler
   rails (~> 6.0.3)
   rails-i18n (~> 6.0.0)
   rubocop
